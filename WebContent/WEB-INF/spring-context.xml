@@ -13,6 +13,7 @@
 	<context:component-scan base-package="tasks" />
 	<mvc:default-servlet-handler/>
 	<mvc:annotation-driven/>
+	
 	<!-- mapping da camada VIEW -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/pages/"/>
