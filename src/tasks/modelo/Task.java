@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Task {
 
 	private Long id;
@@ -33,6 +35,8 @@ public class Task {
 	public void setFinalizada(boolean finalizada) {
 		this.finalizada = finalizada;
 	}
+	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	public Calendar getDataFinalizacao() {
 		return dataFinalizacao;
 	}

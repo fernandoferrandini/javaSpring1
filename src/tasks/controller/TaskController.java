@@ -1,5 +1,6 @@
 package tasks.controller;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import tasks.dao.TaskDAO;
@@ -48,7 +50,7 @@ public class TaskController {
 */
 	public String getTasks(Model model) {
 		model.addAttribute("tasks", dao.getTasks());
-		return "tasks/get-tasks";
+		return "tasks/get-tasks-ajax";
 	}
 	
 	
@@ -69,4 +71,11 @@ public class TaskController {
 		dao.edita(task);
 		return "redirect:gettasks";
 	}	
+	
+	@ResponseBody 
+	@RequestMapping("/finalizatask")
+	public void finaliza(Long id) {
+		dao.finaliza(id);
+		
+	}
 }
