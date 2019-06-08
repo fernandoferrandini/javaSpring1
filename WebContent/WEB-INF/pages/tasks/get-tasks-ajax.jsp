@@ -40,7 +40,7 @@ function finalizar(id){
 				</c:if>
 				
 				<c:if test="${task.finalizada eq true}">
-					<td>finalizada</td>
+					<td>Finalizada</td>
 				</c:if>
 				<td id="task_${task.id}_date"><fmt:formatDate value="${task.dataFinalizacao.time}" pattern="dd/MM/yyyy"/></td>
 				<td><a href="excluitask?id=${task.id}">Excluir</a></td>
