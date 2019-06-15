@@ -52,7 +52,9 @@ public class TaskController {
 */
 	public String getTasks(Model model) {
 		model.addAttribute("tasks", dao.getTasks());
-		return "tasks/get-tasks-ajax";
+		//return "tasks/get-tasks-ajax";
+		//return "tasks/get-tasks-ajax2";
+		return "tasks/get-tasks-ajax3";
 	}
 	
 	
@@ -74,10 +76,12 @@ public class TaskController {
 		return "redirect:gettasks";
 	}	
 	
-	@ResponseBody 
+	//@ResponseBody - não pode usar junto com o Model injetado no metodo. 
 	@RequestMapping("/finalizatask")
-	public void finaliza(Long id) {
+	public String finaliza(Long id, Model model) {
 		dao.finaliza(id);
+		model.addAttribute("task", dao.getById(id));
+		return "tasks/data-finalizada2";
 		
 	}
 }
